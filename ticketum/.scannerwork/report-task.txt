@@ -1,0 +1,6 @@
+projectKey=EventUM
+serverUrl=http://localhost:9000
+serverVersion=26.9.0.129388
+dashboardUrl=http://localhost:9000/dashboard?id=EventUM
+ceTaskId=d577c8fe-3a45-4c9e-9a2b-8c0da11a39c9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=d577c8fe-3a45-4c9e-9a2b-8c0da11a39c9
