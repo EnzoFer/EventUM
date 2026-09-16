@@ -48,7 +48,13 @@ def create_app(config_class=Config):
                 print(f"Error creating database file: {e}")
                 raise
 
-        database_uri = config.DB_ENGINE + db_full_path
+        if config.DB_ENGINE in ["sqlite:///", "sqlite:////"]:
+            db_absolute_path = os.path.abspath(db_full_path)
+            # En Windows, abspath empieza con C:\, así que 3 barras + C:\ es correcto: sqlite:///C:\...
+            database_uri = "sqlite:///" + db_absolute_path
+        else:
+            database_uri = config.DB_ENGINE + db_full_path
+            
         print(f"Database URI: {database_uri}")
         app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 
