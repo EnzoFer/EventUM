@@ -17,6 +17,11 @@ class Config:
         self.DB_ENGINE = os.getenv('DB_ENGINE')
         self.DB_PATH = os.getenv('DB_PATH')
         self.SV_PORT = os.getenv('SV_PORT')
+        self.MAIL_SERVER = os.getenv('MAIL_SERVER')
+        self.MAIL_PORT = os.getenv('MAIL_PORT')
+        self.MAIL_USE_TLS = os.getenv('MAIL_USE_TLS')
+        self.MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+        self.MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
 
 
 class TestConfig(Config):
@@ -24,6 +29,7 @@ class TestConfig(Config):
     Configuration class for testing
     '''
     def load_env_variables(self):
+        super().load_env_variables()
         self.DB_ENGINE = 'sqlite:///:memory:'
         self.SQLALCHEMY_TRACK_MODIFICATIONS = False
         self.TESTING = True

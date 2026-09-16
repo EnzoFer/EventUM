@@ -1,12 +1,11 @@
 import unittest
 from datetime import datetime
-from flask_testing import TestCase
 from app import create_app
 from config_test import TestConfig
 from main import db
 from tests import BaseTestCase
 from main.models import EventModel as Event
-from tests.constants import event_data_1, event_data_2, event_data_3
+from tests.constants import *
 from main.services import EventService
 
 

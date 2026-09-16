@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
@@ -17,6 +18,7 @@ mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
+    CORS(app)
 
     # Initialize the configuration
     config = config_class()
