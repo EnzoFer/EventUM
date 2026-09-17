@@ -24,6 +24,7 @@ def create_app(config_class=Config):
     config = config_class()
     config.load_env_variables()
 
+
     if isinstance(config, TestConfig):
         app.config['SQLALCHEMY_DATABASE_URI'] = config.DB_ENGINE
         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = config.SQLALCHEMY_TRACK_MODIFICATIONS
